@@ -1,0 +1,14 @@
+.pos 0
+
+	irmovq stack,%rsp
+	call main
+	halt
+
+
+main:
+	xorq %rax,%rax
+	iaddq $1,%rax
+ret
+
+.pos 1024
+stack:

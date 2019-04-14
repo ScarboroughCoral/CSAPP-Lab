@@ -1,0 +1,40 @@
+.pos 0
+	irmovq stack,%rsp
+	call main
+	halt
+
+.align 8
+ele1:
+.quad 0x00a
+.quad ele2
+ele2:
+.quad 0x0b0
+.quad ele3
+ele3:
+.quad 0xc00
+.quad 0
+
+rsum_list:
+	xorq %rax,%rax
+	andq %rdi,%rdi
+	jne not_null
+	ret
+not_null:
+	mrmovq 0(%rdi),%rsi
+	pushq %rsi
+	mrmovq 8(%rdi),%rdi
+	call rsum_list
+	popq %rsi
+	addq %rsi,%rax
+	ret
+
+
+
+main:
+	irmovq ele1,%rdi
+	call rsum_list
+	ret
+
+
+.pos 1024
+stack:

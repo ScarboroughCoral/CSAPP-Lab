@@ -1,6 +1,6 @@
 # Modify this line to indicate the default version
 
-VERSION=std
+VERSION=full
 
 # Comment this out if you don't have Tcl/Tk on your system
 
@@ -11,7 +11,7 @@ GUIMODE=-DHAS_GUI
 # to tell gcc which directory to look in. Comment this out if you
 # don't have Tcl/Tk.
 
-TKLIBS=-L/usr/lib -ltk -ltcl
+TKLIBS=-L/usr/lib -ltk8.5 -ltcl8.5
 
 # Modify the following line so that gcc can find the tcl.h and tk.h
 # header files on your system. Comment this out if you don't have
@@ -23,7 +23,7 @@ TKINC=-isystem /usr/include/tcl8.5
 # flags.
 
 CC=gcc
-CFLAGS=-Wall -O2
+CFLAGS=-Wall -O2 
 
 ##################################################
 # You shouldn't need to modify anything below here

@@ -1,0 +1,44 @@
+# sum_list function coded by scarborough_coral
+
+.pos 0
+	irmovq stack,%rsp
+	call main
+	halt
+
+# Sample linked list
+.align 8
+ele1:
+.quad 0x00a
+.quad ele2
+ele2:
+.quad 0x0b0
+.quad ele3
+ele3:
+.quad 0xc00
+.quad 0
+
+sum_list:
+	xorq %rax,%rax
+	
+loop_start:
+	andq %rdi,%rdi
+	je loop_end
+
+	mrmovq 0(%rdi),%rsi
+	addq %rsi,%rax
+	mrmovq 8(%rdi),%rsi
+	rrmovq %rsi,%rdi	
+
+	jmp loop_start
+
+loop_end:
+	ret
+
+main:
+	irmovq ele1,%rdi
+	call sum_list
+	ret
+
+
+.pos 1024
+stack:

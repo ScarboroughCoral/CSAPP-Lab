@@ -1,0 +1,49 @@
+0x000:                      | .pos 0
+0x000: 30f40004000000000000 | 	irmovq stack,%rsp
+0x00a: 809700000000000000   | 	call main
+0x013: 00                   | 	halt
+                            | 	
+                            | 
+                            | 
+0x018:                      | .align 8
+0x018:                      | src:
+0x018: 0a00000000000000     | 	.quad 0x00a
+0x020: b000000000000000     | 	.quad 0x0b0
+0x028: 000c000000000000     | 	.quad 0xc00
+                            | 
+0x030:                      | dest:
+0x030: 1101000000000000     | 	.quad 0x111
+0x038: 2202000000000000     | 	.quad 0x222
+0x040: 3303000000000000     | 	.quad 0x333
+                            | 
+0x048:                      | copy_block:
+0x048: 6300                 | 	xorq %rax,%rax
+0x04a: a0cf                 | 	pushq %r12
+0x04c: a0df                 | 	pushq %r13
+0x04e: 30fd0100000000000000 | 	irmovq $1,%r13
+0x058: 30fc0800000000000000 | 	irmovq $8,%r12
+0x062:                      | loop_start:	
+0x062: 6222                 | 	andq %rdx,%rdx
+0x064: 739200000000000000   | 	je loop_end
+0x06d: 50170000000000000000 | 	mrmovq (%rdi),%rcx
+0x077: 40160000000000000000 | 	rmmovq %rcx,(%rsi)
+0x081: 60c7                 | 	addq %r12,%rdi
+0x083: 60c6                 | 	addq %r12,%rsi
+0x085: 6310                 | 	xorq %rcx,%rax
+0x087: 61d2                 | 	subq %r13,%rdx
+0x089: 706200000000000000   | 	jmp loop_start
+0x092:                      | loop_end:
+0x092: b0cf                 | 	popq %r12
+0x094: b0df                 | 	popq %r13
+0x096: 90                   | 	ret
+                            | 
+0x097:                      | main:
+0x097: 30f71800000000000000 | 	irmovq src,%rdi
+0x0a1: 30f63000000000000000 | 	irmovq dest,%rsi
+0x0ab: 30f20300000000000000 | 	irmovq $3,%rdx
+0x0b5: 804800000000000000   | 	call copy_block
+0x0be: 90                   | 	ret
+                            | 
+                            | 
+0x400:                      | .pos 1024
+0x400:                      | stack:
