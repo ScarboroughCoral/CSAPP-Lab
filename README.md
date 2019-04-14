@@ -9,8 +9,8 @@
 - [x] data lab
 - [x] bomb lab
 - [x] attack lab
-- [ ] arch lab 【Work in process】
-- [ ] cache lab
+- [x] arch lab
+- [ ] cache lab 【Work in process】
 - [ ] performance lab
 - [ ] shell lab
 - [ ] malloc lab
