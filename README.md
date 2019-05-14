@@ -11,7 +11,6 @@
 - [x] attack lab
 - [x] arch lab
 - [ ] cache lab 【Work in process】
-- [ ] performance lab
 - [ ] shell lab
 - [ ] malloc lab
 - [ ] proxy lab
