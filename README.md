@@ -10,7 +10,7 @@
 - [x] bomb lab
 - [x] attack lab
 - [x] arch lab
-- [ ] cache lab 【Work in process】
+- [x] cache lab 
 - [ ] shell lab
 - [ ] malloc lab
 - [ ] proxy lab
