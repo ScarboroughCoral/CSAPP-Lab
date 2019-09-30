@@ -22,6 +22,22 @@ int is_transpose(int M, int N, int A[N][M], int B[M][N]);
 char transpose_submit_desc[] = "Transpose submission";
 void transpose_submit(int M, int N, int A[N][M], int B[M][N])
 {
+    int i, j, tmp;
+    const unsigned block_number = (N+7)/8;
+    const unsigned block_size = 8;
+
+    for (i = 0; i < block_number; i++) {
+        for (j = 0; j < N; j++) {
+
+            for (size_t k = i*block_size; k < i*block_size+block_size&&k<M; k++)
+            {
+                tmp = A[j][k];
+                B[k][j] = tmp;
+            }
+            
+            
+        }
+    }    
 }
 
 /* 
@@ -36,13 +52,23 @@ char trans_desc[] = "Simple row-wise scan transpose";
 void trans(int M, int N, int A[N][M], int B[M][N])
 {
     int i, j, tmp;
+    const unsigned block_number = (N+7)/8;
+    const unsigned block_size = 8;
 
-    for (i = 0; i < N; i++) {
-        for (j = 0; j < M; j++) {
-            tmp = A[i][j];
-            B[j][i] = tmp;
+    for (i = 0; i < block_number; i++) {
+        for (j = 0; j < N; j++) {
+
+            for (size_t k = i*block_size; k < i*block_size+block_size&&k<M; k++)
+            {
+                tmp = A[j][k];
+                B[k][j] = tmp;
+            }
+            
+            
         }
     }    
+
+    
 
 }
 
@@ -59,7 +85,7 @@ void registerFunctions()
     registerTransFunction(transpose_submit, transpose_submit_desc); 
 
     /* Register any additional transpose functions */
-    registerTransFunction(trans, trans_desc); 
+    // registerTransFunction(trans, trans_desc); 
 
 }
 
