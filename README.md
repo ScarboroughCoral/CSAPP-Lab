@@ -11,6 +11,6 @@
 - [x] attack lab
 - [x] arch lab
 - [x] cache lab 
-- [ ] shell lab
+- [x] shell lab （因为个人操作失误，代码没有保留下来，只有一个可执行文件。。）
 - [ ] malloc lab
 - [ ] proxy lab
