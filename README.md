@@ -1,3 +1,4 @@
+
 # CSAPP-Lab
 《深入理解计算机系统3e》配套实验代码
 
@@ -11,6 +12,6 @@
 - [x] attack lab
 - [x] arch lab
 - [x] cache lab 
-- [ ] shell lab
-- [ ] malloc lab
+- [x] shell lab （因为个人操作失误，代码没有保留下来，只有一个可执行文件。。）
+- [ ] malloc lab （WIP）
 - [ ] proxy lab
