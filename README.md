@@ -4,7 +4,7 @@
 
 :smile:  盘它
 
-系列博客地址：[扶桑树叶之CSAPP Lab](http://blog.scarboroughcoral.top/tags/CSAPP-Lab/)
+系列博客地址：[扶桑树叶之CSAPP Lab](https://scarboroughcoral.github.io/tags/CSAPP-Lab/)
 
 
 - [x] data lab
